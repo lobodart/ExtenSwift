@@ -140,3 +140,19 @@ extension UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: CGFloat(alpha))
     }
 }
+
+extension UIViewController {
+    /// Instantiate view from identifier
+    ///
+    /// - author: Remi TELENCZAK
+    /// - parameters:
+    ///     - String: The indentifier of UIViewController
+    ///     - String: The name of Story Board
+    /// - returns:
+    ///     An UIViewController 
+    class func initFromStoryBoard(identifier : String, storyBoardName : String = "Main") -> UIViewController? {
+        let mainStoryboard = UIStoryboard(name: storyBoardName, bundle: NSBundle.mainBundle())
+        let view =  mainStoryboard.instantiateViewControllerWithIdentifier(identifier)
+        return view
+    }
+}
