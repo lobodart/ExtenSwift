@@ -27,6 +27,10 @@ If you want to add yours, you just have to make a pull request. Before it, just 
 - Class methods
   - `colorFromHex(UInt32, Double) -> UIColor` - _Create an UIColor from a hexadecimal value._
 
+### UIViewController
+- Class methods
+  - `initFromStoryBoard(String, String) -> UIViewController?` - _Instantiate a storyboard UIViewController using its identifier._
+
 ## Pull requests rules
 To keep this repository clean and safe, you must ensure that your code respects the following rules :
 - All the code you provide **must** be added into the `ExtenSwift.swift` file.
@@ -60,3 +64,4 @@ If you want to contribute otherwise than code, you can make sure that the englis
 ## Thanks
 All contributors are listed here ! Don't be shy and submit your pull request ;)
 - [Louis BODART (lobodart)](https://www.github.com/lobodart)
+- [Rémi Telenczak (telenc)](https://github.com/telenc)
