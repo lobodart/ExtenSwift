@@ -142,14 +142,14 @@ extension UIColor {
 }
 
 extension UIViewController {
-    /// Instantiate view from identifier
+    /// Instantiate a storyboard UIViewController using its identifier.
     ///
     /// - author: Remi TELENCZAK
     /// - parameters:
-    ///     - String: The indentifier of UIViewController
-    ///     - String: The name of Story Board
+    ///     - String: The indentifier of the UIViewController
+    ///     - String: The name of the Storyboard
     /// - returns:
-    ///     An UIViewController 
+    ///     An UIViewController or nil if it doesn't exist
     class func initFromStoryBoard(identifier : String, storyBoardName : String = "Main") -> UIViewController? {
         let mainStoryboard = UIStoryboard(name: storyBoardName, bundle: NSBundle.mainBundle())
         let view =  mainStoryboard.instantiateViewControllerWithIdentifier(identifier)
