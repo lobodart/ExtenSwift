@@ -169,6 +169,25 @@ extension UIColor {
     }
 }
 
+extension UIView {
+    /// Create border on view
+    ///
+    /// - author: Steven MARTREUX
+    /// - parameters:
+    ///     - CGFloat: width of the border
+    ///     - UIColor: color of the border
+    ///     - CGFloat: radius of the border
+    ///     - Bool: A Boolean value that determines whether subviews are confined to the bounds of the view. (Default value = true)
+    func setCornerBorder(borderWidth : CGFloat, borderColor : UIColor, cornerRadius : CGFloat, clipToBounds : Bool = true)
+    {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.CGColor
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = clipToBounds
+    }
+}
+
+
 extension UIViewController {
     /// Instantiate a storyboard UIViewController using its identifier.
     ///
