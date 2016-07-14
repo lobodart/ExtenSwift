@@ -123,6 +123,34 @@ extension NSDate {
     }
 }
 
+extension String {
+    /// Check if the string is an email
+    ///
+    /// - author: Steven MARTREUX
+    ///
+    /// - returns:
+    ///     A Boolean to true if the string is an email or false if it is not
+    func isValidEmail() -> Bool {
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(self)
+    }
+    
+    
+    /// Allow to localize the string very fast
+    ///
+    /// - author: Steven MARTREUX
+    ///
+    /// - returns:
+    ///     String localized
+    ///
+    /// - example:
+    ///     NameOfYourString.localized
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
+}
+
 extension UIColor {
     /// Create an UIColor from a hexadecimal value
     ///
