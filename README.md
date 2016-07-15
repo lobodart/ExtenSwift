@@ -84,3 +84,4 @@ If you want to contribute otherwise than code, you can make sure that the englis
 All contributors are listed here ! Don't be shy and submit your pull request ;)
 - [Louis BODART (lobodart)](https://www.github.com/lobodart)
 - [Rémi Telenczak (telenc)](https://github.com/telenc)
+- [Steven MARTREUX (martres)](https://github.com/martres)
