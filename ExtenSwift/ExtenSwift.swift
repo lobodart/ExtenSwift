@@ -174,8 +174,8 @@ extension UIDevice {
     ///
     /// - author: Steven MARTREUX
     /// - example:
-    ///     UIDevice.currentDevice().modelName
-    var modelName: String {
+    ///     UIDevice.currentDevice().deviceType
+    var deviceType: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -239,20 +239,22 @@ extension UIImageView {
 }
 
 extension UIView {
+    
     /// Create border on view
     ///
     /// - author: Steven MARTREUX
     /// - parameters:
     ///     - CGFloat: width of the border
     ///     - UIColor: color of the border
-    ///     - CGFloat: radius of the border
-    ///     - Bool: A Boolean value that determines whether subviews are confined to the bounds of the view. (Default value = true)
-    func setCornerBorder(borderWidth : CGFloat, borderColor : UIColor, cornerRadius : CGFloat, clipToBounds : Bool = true)
+    ///     - CGFloat: radius of the border (Optional value)
+    ///     - Bool: A Boolean value that determines whether subviews are confined to the bounds of the view. (Default value = 
+    ///     true)
+    func setCornerBorder(borderWidth : CGFloat, borderColor : UIColor, cornerRadius : CGFloat = 0, masksToBounds : Bool = true)
     {
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor.CGColor
         self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = clipToBounds
+        self.layer.masksToBounds = masksToBounds
     }
 }
 
