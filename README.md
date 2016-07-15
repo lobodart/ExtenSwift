@@ -23,9 +23,28 @@ If you want to add yours, you just have to make a pull request. Before it, just 
   - `dateFromString(String, String) -> NSDate!` - _Convert a string to date using format._
   - `stringFromDate(NSDate, String) -> String!` - _Convert a date to string using format._
 
+### String
+- Class methods
+  - `isValidEmail -> Bool` - _Check if the string is an email._
+
+- Class attributs
+  - `localized` - _Allow to localize the string very fast._
+
 ### UIColor
 - Class methods
   - `colorFromHex(UInt32, Double) -> UIColor` - _Create an UIColor from a hexadecimal value._
+
+### UIDevice  
+- Class attributs
+  - `deviceType` - _Get name of the device (iPhone / iPad)._
+
+### UIImageView  
+- Class methods
+  - `downloadedFrom(String, UIViewContentMode)` - _Download image from link and set the image on UIImageView._
+
+### UIView  
+- Class methods
+  - `setCornerBorder(CGFloat, UIColor, CGFloat = 0, Bool = true)` - _Download image from link and set the image on UIImageView._
 
 ### UIViewController
 - Class methods
@@ -65,3 +84,4 @@ If you want to contribute otherwise than code, you can make sure that the englis
 All contributors are listed here ! Don't be shy and submit your pull request ;)
 - [Louis BODART (lobodart)](https://www.github.com/lobodart)
 - [Rémi Telenczak (telenc)](https://github.com/telenc)
+- [Steven MARTREUX (martres)](https://github.com/martres)
