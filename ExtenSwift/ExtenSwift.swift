@@ -124,6 +124,30 @@ extension NSDate {
 }
 
 extension UIColor {
+    /// Create an UIColor from a texture and a color
+    ///
+    /// - author: Nicolas Lourenco
+    /// - parameters:
+    ///     - UIImage: The texture to set
+    ///     - UIColor: The color to apply
+    /// - returns:
+    ///     An UIColor that represents your texture with given color
+    class func color(texture: UIImage!, color: UIColor!) -> UIColor {
+        let rect = CGRect(x: 0, y: 0, width: texture.size.width, height: texture.size.height)
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, texture.scale)
+
+        color.setFill()
+        UIRectFill(rect)
+
+        texture.drawInRect(rect)
+
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+
+        return UIColor(patternImage: result)
+    }
+    
     /// Create an UIColor from a hexadecimal value
     ///
     /// - author: Louis BODART
@@ -138,6 +162,42 @@ extension UIColor {
         let blue = CGFloat(hexaValue & 0xFF) / 256.0
         
         return UIColor(red: red, green: green, blue: blue, alpha: CGFloat(alpha))
+    }
+}
+
+extension UIDevice {
+    private var iPhone: Bool {
+        return UIDevice().userInterfaceIdiom == .Phone
+    }
+
+    enum ScreenType: String {
+        case iPhone4
+        case iPhone5
+        case iPhone6
+        case iPhone6Plus
+        case Unknown
+    }
+
+    /// Give the screen type for the current device
+    ///
+    /// - author: Nicolas Lourenco
+    /// - returns:
+    ///     The type of the screen for the current device
+    var screenType: ScreenType? {
+        guard iPhone else { return .Unknown }
+
+        switch UIScreen.mainScreen().bounds.height {
+        case 480:
+            return .iPhone4
+        case 568:
+            return .iPhone5
+        case 667:
+            return .iPhone6
+        case 736:
+            return .iPhone6Plus
+        default:
+            return nil
+        }
     }
 }
 
