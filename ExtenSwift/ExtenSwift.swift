@@ -141,6 +141,42 @@ extension UIColor {
     }
 }
 
+extension UIDevice {
+    private var iPhone: Bool {
+        return UIDevice().userInterfaceIdiom == .Phone
+    }
+
+    enum ScreenType: String {
+        case iPhone4
+        case iPhone5
+        case iPhone6
+        case iPhone6Plus
+        case Unknown
+    }
+
+    /// Give the screen type for the current device
+    ///
+    /// - author: Nicolas Lourenco
+    /// - returns:
+    ///     The type of the screen for the current device
+    var screenType: ScreenType? {
+        guard iPhone else { return .Unknown }
+
+        switch UIScreen.mainScreen().bounds.height {
+        case 480:
+            return .iPhone4
+        case 568:
+            return .iPhone5
+        case 667:
+            return .iPhone6
+        case 736:
+            return .iPhone6Plus
+        default:
+            return nil
+        }
+    }
+}
+
 extension UIViewController {
     /// Instantiate a storyboard UIViewController using its identifier.
     ///
