@@ -124,6 +124,30 @@ extension NSDate {
 }
 
 extension UIColor {
+    /// Create an UIColor from a texture and a color
+    ///
+    /// - author: Nicolas Lourenco
+    /// - parameters:
+    ///     - UIImage: The texture to set
+    ///     - UIColor: The color to apply
+    /// - returns:
+    ///     An UIColor that represents your texture with given color
+    class func color(texture: UIImage!, color: UIColor!) -> UIColor {
+        let rect = CGRect(x: 0, y: 0, width: texture.size.width, height: texture.size.height)
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, texture.scale)
+
+        color.setFill()
+        UIRectFill(rect)
+
+        texture.drawInRect(rect)
+
+        let result = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+
+        return UIColor(patternImage: result)
+    }
+    
     /// Create an UIColor from a hexadecimal value
     ///
     /// - author: Louis BODART
